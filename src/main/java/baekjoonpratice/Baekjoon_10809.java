@@ -15,8 +15,9 @@ public class Baekjoon_10809 {
 		
 		Scanner sc = new Scanner(System.in);
 		String word;
-		
-		while(true) {
+		char[] alpahbet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+		boolean valid = true;
+		while(valid) {
 			word = sc.nextLine();
 			
 			for(int i = 0; i < word.length(); ++i) {
@@ -26,10 +27,15 @@ public class Baekjoon_10809 {
 				}
 			
 			}
-			System.out.println(word);
-			break;
+			valid= false;
+//			if(valid =false) {
+//				System.out.println(word);
+//				
+//			}
+			
 		}
-	
+		
+
 		
 		
 		
