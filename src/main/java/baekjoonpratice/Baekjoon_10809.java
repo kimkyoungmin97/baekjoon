@@ -1,5 +1,6 @@
 package baekjoonpratice;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Baekjoon_10809 {
@@ -14,30 +15,26 @@ public class Baekjoon_10809 {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		String word;
-		char[] alpahbet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-		boolean valid = true;
-		while(valid) {
-			word = sc.nextLine();
-			
-			for(int i = 0; i < word.length(); ++i) {
-				if(word.charAt(i)<97 || word.charAt(i) >122) {
-					System.out.println("다시입력하세요.");
-					break;
-				}
-			
-			}
-			valid= false;
-//			if(valid =false) {
-//				System.out.println(word);
-//				
-//			}
-			
-		}
 		
+		char[] arr = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+		int[] arr2 = new int[26];
 
+
+		String word = sc.nextLine();
+
+		for(int i = 0; i < 26; ++i) {
 		
-		
-		
+			for(int j = 0; j < word.length(); ++j) {
+				if(arr[i] == word.charAt(j)) {
+					arr2[i] = j;
+					break;
+				}else {
+					arr2[i] = -1;
+				}
+			}
+		}
+		for(int k = 0; k <26; ++k) {
+			System.out.print(arr2[k]+" ");
+		}
 	}
 }
