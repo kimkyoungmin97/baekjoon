@@ -16,44 +16,55 @@ public class Baekjoon_17609 {
 //		
 //		각 문자열이 회문인지, 유사 회문인지, 둘 모두 해당되지 않는지를 판단하여 회문이면 0, 유사 회문이면 1, 둘 모두 아니면 2를 순서대로 한 줄에 하나씩 출력한다.
 	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		
-//		int T = sc.nextInt();
-//		String[] arr = new String[T];
-//		
-//		for(int i = 0; i < T; ++i) {
-//			String word = sc.next();
-//			//짝수면 회문인지 판단
-//			if(word.length() % 2 == 0) {
-//				arr[i] = "짝수";
-//			//홀수면 회문인지 유사 회문인지 판단
-//			}else {
-//				arr[i] = "홀수";
-//			}
-//		}
-//		for(int j = 0; j < T; ++j) {
-//			System.out.println(arr[j]);
-//		}
-		
-		//test
-		
-		String test = sc.next();
-		//true면 회문 or 유사회문
-		//false면 그냥 단어
-		boolean a = false;
-		for(int i = 0; i < test.length()/2; ++i) {
-			if(test.charAt(i) == test.charAt(test.length()-(i+1))) {
-				a = true;
-			}
-		}
-		if(a == true) {
-			System.out.println("회문 or 유사회문");
-		}else {
-			System.out.println("그냥단어");
-		}
-		
-		
-	}
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        
+        int[] result = new int[T];
+        
+        for (int i = 0; i < T; i++) {
+            String word = sc.next();
+            int left = 0, right = word.length() - 1;
+            
+
+            while (left < right) {
+                if (word.charAt(left) == word.charAt(right)) {
+                    left++;
+                    right--;
+                } else {
+                    // 왼쪽 글자 삭제 가정
+                    int l1 = left + 1, r1 = right;
+                    boolean ok1 = true;
+                    while (l1 < r1) {
+                        if (word.charAt(l1) != word.charAt(r1)) {
+                            ok1 = false;
+                            break;
+                        }
+                        l1++; r1--;
+                    }
+
+                    // 오른쪽 글자 삭제 가정
+                    int l2 = left, r2 = right - 1;
+                    boolean ok2 = true;
+                    while (l2 < r2) {
+                        if (word.charAt(l2) != word.charAt(r2)) {
+                            ok2 = false;
+                            break;
+                        }
+                        l2++; r2--;
+                    }
+
+                    if (ok1 || ok2) result[i] = 1; // 유사회문
+                    else result[i] = 2;            // 일반 문자열
+                    break; // 이미 결과 확정
+                }
+            }
+
+            
+        }
+        
+        for(int i = 0; i < result.length; ++i) {
+        	System.out.println(result[i]);
+        }
+    }
 
 }
