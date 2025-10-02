@@ -1,17 +1,16 @@
-# Java class files
-*.class
+# === Eclipse / STS project files ===
+.project
+.classpath
+.settings/
 
-# Build folders
-/target/
-/out/
+# === Build / IDE outputs ===
+bin/
+target/
 
-# Logs
+# === OS-specific ===
+.DS_Store       # macOS
+Thumbs.db       # Windows
+
+# === Logs / Temp ===
 *.log
-
-# IDE 관련
-*.iml
-*.idea/
-*.vscode/
-
-# Mac OS 관련
-.DS_Store
+*.tmp
