@@ -1,6 +1,7 @@
 package programmers;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 
 //프로그래머스 소수찾기
