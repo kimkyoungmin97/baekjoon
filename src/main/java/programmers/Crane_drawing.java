@@ -32,7 +32,10 @@ public class Crane_drawing {
                 answer+=2;
                 list.remove(i+1);
                 list.remove(i);
-                i-=2;
+                //i-=2; // 수정전
+                //수정 후
+                i = Math.max(i - 1, 0);
+                continue;
                 
             }
             ++i;
